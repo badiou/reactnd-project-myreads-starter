@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
-import Rx from "rxjs/Rx";
+import * as Rx from 'rxjs';
 import "./App.css";
 
 class SearchPage extends React.Component {
@@ -10,7 +10,7 @@ class SearchPage extends React.Component {
     query: "",
     books: []
   };
-  searchInput: Rx.Subject<any>;
+  searchInput: Rx.Subject <any> ;
 
   constructor() {
     super();

@@ -1,9 +1,9 @@
 // @flow
-import React from "react";
+import React from "react"
 import "./App.css";
-import { Link } from "react-router-dom";
-import BookShelf from "./BookShelf";
-import * as BooksAPI from "./BooksAPI";
+import { Link } from "react-router-dom"
+import BookShelf from "./BookShelf"
+import * as BooksAPI from "./BooksAPI"
 
 
 class ListBooks extends React.Component {
