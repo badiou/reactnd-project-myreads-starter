@@ -10,12 +10,12 @@ class ListBooks extends React.Component {
   state = {};
 
   handleChangeBookShelf = (bookId: int, e: any) => {
-    const etagere = this.props.booksOnShelf;
-    const book = etagere.filter(t => t.id === bookId)[0];
+    const books = this.props.booksOnShelf;
+    const book = books.filter(t => t.id === bookId)[0];
     book.shelf = e.target.value;
     BooksAPI.update(book, e.target.value).then(response => {
       this.setState({
-        books: etagere
+        books: books
       });
     });
   };

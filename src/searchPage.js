@@ -3,19 +3,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
 import * as Rx from 'rxjs';
+import { debounceTime, map } from 'rxjs/operators';
+
 import "./App.css";
 
 class SearchPage extends React.Component {
   state = {
     query: "",
-    books: []
+    books: [],
+    searchInput:''
   };
-  searchInput: Rx.Subject <any> ;
+   ;
 
   constructor() {
     super();
     this.searchInput = new Rx.Subject();
-    this.searchInput.debounceTime(500).subscribe(param => {
+    this.searchInput.debounceTime(400).subscribe(param => {
       this.fireSearchBook(param);
     });
   }
