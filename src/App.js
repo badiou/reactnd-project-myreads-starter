@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import ListofBooks from "./ListofBooks";
 import * as BooksAPI from "./BooksAPI";
-import SearchPage from "./searchPage";
+import SearchPage from "./SearchPage";
 
 
 

@@ -1,23 +1,21 @@
-// @flow
 import React from "react";
 import { Link } from "react-router-dom";
+import * as Rx from "rxjs";
 import * as BooksAPI from "./BooksAPI";
-import * as Rx from 'rxjs';
-
 import "./App.css";
 
 class SearchPage extends React.Component {
   state = {
     query: "",
-    books: [],
-    inputString:''
+    books: []
   };
-   ;
+
+  InputString: Rx.Subject<any>;
 
   constructor() {
     super();
-    this.inputString = new Rx.Subject();
-    this.inputString.debounceTime(400).subscribe(param => {
+    this.InputString = new Rx.Subject();
+    this.InputString.debounceTime(500).subscribe(param => {
       this.fireSearchBook(param);
     });
   }
@@ -27,7 +25,7 @@ class SearchPage extends React.Component {
       query: query
     });
     if (query) {
-      this.inputString.next(query);
+      this.InputString.next(query);
     } else {
       this.setState({
         books: []
@@ -62,17 +60,17 @@ class SearchPage extends React.Component {
         }
       },
       error => {
-        console.log("error");
+        console.log("error ocurred");
       }
     );
   }
 
   updateBookOnSearch(book, shelf) {
-    const booksResult = this.state.books;
-    const bookToUpdate = booksResult.filter(t => t.id === book.id)[0];
+    let temp = this.state.books;
+    const bookToUpdate = temp.filter(t => t.id === book.id)[0];
     bookToUpdate.shelf = shelf;
     this.setState({
-      books: booksResult
+      books: temp
     });
     this.props.onChangeShelf(book, shelf);
   }
