@@ -10,14 +10,14 @@ class SearchPage extends React.Component {
   state = {
     query: "",
     books: [],
-    searchInput:''
+    inputString:''
   };
    ;
 
   constructor() {
     super();
-    this.searchInput = new Rx.Subject();
-    this.searchInput.debounceTime(400).subscribe(param => {
+    this.inputString = new Rx.Subject();
+    this.inputString.debounceTime(400).subscribe(param => {
       this.fireSearchBook(param);
     });
   }
@@ -27,7 +27,7 @@ class SearchPage extends React.Component {
       query: query
     });
     if (query) {
-      this.searchInput.next(query);
+      this.inputString.next(query);
     } else {
       this.setState({
         books: []
