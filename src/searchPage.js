@@ -7,10 +7,9 @@ import "./App.css";
 class SearchPage extends React.Component {
   state = {
     query: "",
-    books: []
+    books: [],
+    InputString:''
   };
-
-  InputString: Rx.Subject<any>;
 
   constructor() {
     super();
