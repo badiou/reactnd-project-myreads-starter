@@ -15,9 +15,7 @@ class SearchPage extends React.Component {
   constructor() {
     super();
     this.InputString = new Rx.Subject();
-    this.InputString.debounceTime(500).subscribe(param => {
-      this.fireSearchBook(param);
-    });
+      this.fireSearchBook(this.InputString);
   }
 
   updateQuery = (query) => {

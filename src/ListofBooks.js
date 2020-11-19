@@ -8,7 +8,7 @@ import * as BooksAPI from "./BooksAPI"
 class ListBooks extends React.Component {
   state = {};
 
-  handleChangeBookShelf = (bookId, e) => {
+   handleChangeBookShelf = (bookId, e) => {
     const books = this.props.booksOnShelf;
     const book = books.filter(t => t.id === bookId)[0];
     book.shelf = e.target.value;
