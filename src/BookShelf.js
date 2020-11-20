@@ -11,7 +11,7 @@ class BookShelf extends Component {
                         <li key={index}>
                             <div className="book">
                                 <div className="book-top">
-                                    <div className="book-cover" style={{ width: 128, height: 170, backgroundImage:`url(${book.imageLinks.thumbnail})` }}></div>
+                                    <div className="book-cover" style={{ width: 128, height: 170,backgroundImage: book.imageLinks ? (`url(${book.imageLinks.thumbnail})`) : (`https://dummyimage.com/128x170/4f4f4f/ffffff.jpg&text=No+Book+Art)`) }}></div>
                                     <div className="book-shelf-changer">
                                         <select value={book.shelf} onChange={(event) => this.props.updateShelf(book, event.target.value)}> 
                                             <option disabled>Move to...</option>
